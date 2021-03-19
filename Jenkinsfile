@@ -17,9 +17,9 @@ pipeline {
 	    stage('Code Inspect'){
 			steps {
 				echo 'Now performing code Analysis '
-				bat label: 'code-Analysis-Step1', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" begin /k:"AspWithNUnit"'
-				bat label: 'code-Analysis-Step2', script: '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" C:\\Users\\Administrator\\.jenkins\\workspace\\test2\\AspWithNUnit.sln /t:Rebuild'
-				bat label: 'code-Analysis-Step3', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" end'
+				//bat label: 'code-Analysis-Step1', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" begin /k:"AspWithNUnit"'
+				//bat label: 'code-Analysis-Step2', script: '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" C:\\Users\\Administrator\\.jenkins\\workspace\\test2\\AspWithNUnit.sln /t:Rebuild'
+				//bat label: 'code-Analysis-Step3', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" end'
 				println 'Success'
 			}
     	}
@@ -29,7 +29,7 @@ pipeline {
 				script {
 					try {
 						echo 'Now performing Nunit'
-						build 'Nunit'
+						//build 'Nunit'
 						println 'Success'
 					} catch(err) {
 						echo "There are some errors in your unit tests!"
@@ -58,7 +58,7 @@ pipeline {
 		stage('Automated Functional Testing'){
 			steps {   
 				echo 'Now performing Nunit'
-				build 'FTA'
+				//build 'FTA'
 				println 'Success'
 			}
     	}
@@ -81,12 +81,14 @@ pipeline {
 	    stage('Code Merge'){
 			steps {   
 				echo 'Now performing Code Merge'
-				//build 'Code Merge'
+				build 'Final_Merge'
 				deleteDir()
                 git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
 				println 'Success'
 			}
     	}
+		
+		 
 		
 	    stage('Compile the Merge code') {
             steps {
