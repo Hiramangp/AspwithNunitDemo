@@ -81,18 +81,14 @@ pipeline {
 	    stage('Code Merge'){
 			steps {   
 				echo 'Now performing Code Merge'
-				//deleteDir()
-				//git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
+				deleteDir()
+				git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
 				
-				bat label: '1', script: 'git checkout main'
-bat label: '2', script: 'git remote add origin https://github.com/Hiramangp/AspwithNunitDemo.git'
-bat label: '3', script: 'git push -u origin main'
-bat label: '4', script: 'git pull'
-bat label: '5', script: 'git merge main'
+				
 				//bat label: '2', script: 'git checkout main'
 				//bat label: '3', script: 'git pull'
 				
-			//	bat label: '1', script: 'git merge origin/branch1'
+			bat label: '1', script: 'git merge origin/branch1'
 				
 		//bat label: '3', script: 'git merge branch1'
 		//bat label: '4', script: 'git push origin main'
