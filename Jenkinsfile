@@ -82,7 +82,7 @@ pipeline {
 			steps {   
 				echo 'Now performing Code Merge'
 				bat label: '2', script: 'git checkout main'
-		bat label: '3', script: 'git merge branch'
+		bat label: '3', script: 'git merge branch1'
 		bat label: '4', script: 'git push origin main'
 				//build 'Final_Merge'
 				//deleteDir()
