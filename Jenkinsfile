@@ -86,7 +86,7 @@ pipeline {
 				
 				//bat label: '2', script: 'git checkout main'
 				//bat label: '3', script: 'git pull'
-				git merge origin/branch1
+				bat label: '1', script: 'git merge origin/branch1'
 		//bat label: '3', script: 'git merge branch1'
 		//bat label: '4', script: 'git push origin main'
 				//build 'Final_Merge'
