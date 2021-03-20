@@ -85,10 +85,13 @@ pipeline {
 				git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
 				
 				bat label: '2', script: 'git checkout main'
-		bat label: '3', script: 'git merge branch1'
-		bat label: '4', script: 'git push origin main'
+				bat label: '3', script: 'git pull'
+		//bat label: '3', script: 'git merge branch1'
+		//bat label: '4', script: 'git push origin main'
 				//build 'Final_Merge'
 				//deleteDir()
+				//git checkout master
+				//git pull
               //  git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
 				println 'Success'
 			}
