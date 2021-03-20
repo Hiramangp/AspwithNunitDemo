@@ -81,6 +81,7 @@ pipeline {
 	    stage('Code Merge'){
 			steps {   
 				echo 'Now performing Code Merge'
+				deleteDir()
 				git branch: 'main', credentialsId: 'hp', url: 'https://github.com/Hiramangp/AspwithNunitDemo.git'
 				
 				bat label: '2', script: 'git checkout main'
